@@ -163,6 +163,7 @@ namespace Tmds.DBus.CodeGen
                 return false;
             }
 
+            // IS WORKING
             if (IsValueTuple(typeInfo))
             {
                 isValueTuple = true;
@@ -172,6 +173,21 @@ namespace Tmds.DBus.CodeGen
             {
                 return false;
             }
+
+            // NOT WORKING
+            // if (!typeInfo.IsLayoutSequential)
+            // {
+            //     if (IsValueTuple(typeInfo))
+            //     {
+            //         isValueTuple = true;
+            //         return true;
+            //     }
+            //     else
+            //     {
+            //         return false;
+            //     }
+            // }
+            // END
 
             if (typeInfo.ImplementedInterfaces.Contains(s_idbusObjectType))
             {
