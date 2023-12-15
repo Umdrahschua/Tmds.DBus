@@ -164,29 +164,29 @@ namespace Tmds.DBus.CodeGen
             }
 
             // IS WORKING
-            if (IsValueTuple(typeInfo))
-            {
-                isValueTuple = true;
-                return true;
-            }
-            else if (!typeInfo.IsLayoutSequential)
-            {
-                return false;
-            }
+            // if (IsValueTuple(typeInfo))
+            // {
+            //     isValueTuple = true;
+            //     return true;
+            // }
+            // else if (!typeInfo.IsLayoutSequential)
+            // {
+            //     return false;
+            // }
 
             // NOT WORKING
-            // if (!typeInfo.IsLayoutSequential)
-            // {
-            //     if (IsValueTuple(typeInfo))
-            //     {
-            //         isValueTuple = true;
-            //         return true;
-            //     }
-            //     else
-            //     {
-            //         return false;
-            //     }
-            // }
+            if (!typeInfo.IsLayoutSequential)
+            {
+                if (IsValueTuple(typeInfo))
+                {
+                    isValueTuple = true;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
             // END
 
             if (typeInfo.ImplementedInterfaces.Contains(s_idbusObjectType))
