@@ -358,9 +358,10 @@ namespace Tmds.DBus.Tests
                     { 1, "one" },
                     { 2, "two" }
                 };
-                var myDictionary2 = new Dictionary<byte, ValueTuple<byte, byte, byte, byte, byte, byte, byte, ValueTuple<byte>>>
+                var myDictionary2 = new Dictionary<byte, ValueTuple<byte, short, byte, byte, byte, byte, byte, ValueTuple<byte>>>
                 {
-                    { 1, new ValueTuple<byte, byte, byte, byte, byte, byte, byte, ValueTuple<byte>>(1, 2, 3, 4, 5, 6, 7, new ValueTuple<byte>(8)) }
+                    { 1, new ValueTuple<byte, short, byte, byte, byte, byte, byte, ValueTuple<byte>>(1, 3, 5, 7, 9, 11, 13, new ValueTuple<byte>(15)) },
+                    { 2, new ValueTuple<byte, short, byte, byte, byte, byte, byte, ValueTuple<byte>>(2, 4, 6, 8, 10, 12, 14, new ValueTuple<byte>(16)) }
                 };
                 var myArray = myDictionary.ToArray();
                 var john = new PersonProperties()
@@ -429,24 +430,28 @@ namespace Tmds.DBus.Tests
                     //                                                                         new byte[] {28, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 111, 110, 101, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 116, 119, 111, 0}, null},
                     new object[]
                     {
-                        typeof(IDictionary<byte, ValueTuple<byte, byte, byte, byte, byte, byte, byte, ValueTuple<byte>>>),
+                        typeof(IDictionary<byte, ValueTuple<byte, short, byte, byte, byte, byte, byte, ValueTuple<byte>>>),
                         myDictionary2,
                         4,
                         new byte[]
                         {
-                            0, 0, 0, 20, 0, 0, 0, 0,
-                            1, 0, 0,  0, 0, 0, 0, 0,
-                            1, 2, 3,  4, 5, 6, 7, 8,
-                            0, 0, 0,  0, 0, 0, 0, 0,
-                            0, 0, 0,  0, 0, 0, 0, 0,
+                            0, 0, 0, 42,    0, 0, 0, 0,
+                            1, 0, 0, 0,     0, 0, 0, 0,
+                            1, 0, 0, 3,     5, 7, 9, 1,
+                            13, 15, 0, 0,   0, 0, 0, 0,
+                            2, 0, 0,  0,    0, 0, 0, 0,
+                            2, 0, 0,  4,    6, 8, 10, 12,
+                            14, 16, 0, 0,   0, 0, 0, 0
                         },
                         new byte[]
                         {
-                            20, 0, 0, 0, 0, 0, 0, 0,
-                             1, 0, 0, 0, 0, 0, 0, 0,
-                             1, 2, 3, 4, 5, 6, 7, 8,
-                             0, 0, 0, 0, 0, 0, 0, 0,
-                             0, 0, 0, 0, 0, 0, 0, 0,
+                            42, 0, 0, 0,    0, 0, 0, 0,
+                             1, 0, 0, 0,    0, 0, 0, 0,
+                             1, 0, 3, 0,    5, 7, 9, 11,
+                             13, 15, 0, 0,    0, 0, 0, 0,
+                             2, 0, 0, 0,    0, 0, 0, 0,
+                             2, 0, 4, 0,    6, 8, 10, 12,
+                             14, 16, 0, 0,    0, 0, 0, 0,
                         }, null},
                     // new object[] {typeof(KeyValuePair<byte, string>[]), myArray, 4, new byte[] {0, 0, 0, 28, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3, 111, 110, 101, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 3, 116, 119, 111, 0},
                     //                                                             new byte[] {28, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 111, 110, 101, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 116, 119, 111, 0}, null},
