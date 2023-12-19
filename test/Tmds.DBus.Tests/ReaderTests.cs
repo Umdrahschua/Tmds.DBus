@@ -360,11 +360,6 @@ namespace Tmds.DBus.Tests
                     { 1, "one" },
                     { 2, "two" }
                 };
-                var myDictionary2 = new Dictionary<byte, ValueTuple<byte, short, byte, byte, byte, byte, byte, ValueTuple<byte>>>
-                {
-                    { 1, new ValueTuple<byte, short, byte, byte, byte, byte, byte, ValueTuple<byte>>(1, 3, 5, 7, 9, 11, 13, new ValueTuple<byte>(15)) },
-                    { 2, new ValueTuple<byte, short, byte, byte, byte, byte, byte, ValueTuple<byte>>(2, 4, 6, 8, 10, 12, 14, new ValueTuple<byte>(16)) }
-                };
                 var myArray = myDictionary.ToArray();
                 var john = new PersonProperties()
                 {
@@ -457,11 +452,11 @@ namespace Tmds.DBus.Tests
                             101, 114, 0, 1, 105, 0, 0, 0,
                             0, 0, 0, 0, 0, 0, 0, 0,
 
-                            0, 0, 0, 4, 77, 111, 114, 101,
-                            0, 10, 40, 121, 121, 121, 121, 121,
-                            121, 121, 120, 41, 0, 0, 0, 0,
-                            1, 3, 5, 7, 9, 11, 13, 0,
-                            0, 0, 0, 0, 0, 0, 0, 15,
+                              0,   0,  0,    4,  77, 111, 114, 101,
+                              0,  10,  40, 121, 121, 121, 121, 121,
+                            121, 121, 120,  41,   0,   0,   0,   0,
+                              1,   3,   5,   7,   9,  11,  13,   0,
+                              0,   0,   0,   0,   0,   0,   0,   15,
 
                             0, 0, 0, 9, 73, 115, 77, 97,
                             114, 114, 105, 101, 100, 0, 1, 98,
@@ -482,11 +477,11 @@ namespace Tmds.DBus.Tests
                             101, 114, 0, 1, 105, 0, 0, 0,
                             0, 0, 0, 0, 0, 0, 0, 0,
 
-                            4, 0, 0, 0, 77, 111, 114, 101,
-                            0, 10, 40, 121, 121, 121, 121, 121,
-                            121, 121, 120, 41, 0, 0, 0, 0,
-                            1, 3, 5, 7, 9, 11, 13, 0,
-                            15, 0, 0, 0, 0, 0, 0, 0,
+                              4,   0,   0,   0,  77, 111, 114, 101,
+                              0,  10,  40, 121, 121, 121, 121, 121,
+                            121, 121, 120,  41,   0,   0,   0,   0,
+                              1,   3,   5,   7,   9,  11,  13,   0,
+                             15,   0,   0,   0,   0,   0,   0,   0,
 
                             9, 0, 0, 0, 73, 115, 77, 97,
                             114, 114, 105, 101, 100, 0, 1, 98,
@@ -498,7 +493,7 @@ namespace Tmds.DBus.Tests
                                                                        new byte[] {88, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 78, 97, 109, 101, 0, 1, 115, 0, 4, 0, 0, 0, 74, 111, 104, 110, 0, 0, 0, 0, 3, 0, 0, 0, 65, 103, 101, 0, 1, 105, 0, 0, 32, 0, 0, 0, 6, 0, 0, 0, 71, 101, 110, 100, 101, 114, 0, 1, 105, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 73, 115, 77, 97, 114, 114, 105, 101, 100, 0, 1, 98, 0, 0, 0, 0, 1, 0, 0, 0}, null},
                     new object[] {typeof(DictionaryWithDash), new DictionaryWithDash { f_d = 5 }, 4, new byte[] {0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 3, 102, (byte)'-', 100, 0, 1, 105, 0, 0, 0, 0, 0, 5},
                                                                        new byte[] {16, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 102, (byte)'-', 100, 0, 1, 105, 0, 0, 5, 0, 0, 0}, null},
-                    new object[] {typeof((byte, byte, byte, byte, byte, byte, byte, short)), ((byte)1, (byte)2, (byte)3, (byte)4, (byte)5, (byte)6, (byte)7, (short)8), 8, new byte[] { 1, 2, 3, 4, 5, 6, 7, 0, 8}, new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 0}, null},
+                    new object[] {typeof((byte, byte, byte, byte, byte, byte, byte, byte)), ((byte)1, (byte)2, (byte)3, (byte)4, (byte)5, (byte)6, (byte)7, (byte)8), 8, new byte[] { 1, 2, 3, 4, 5, 6, 7, 8}, new byte[] { 1, 2, 3, 4, 5, 6, 7, 8}, null},
                     new object[] {typeof(object), true,             4, new byte[] {1, 98, 0, 0, 0, 0, 0, 1},
                                                                     new byte[] {1, 98, 0, 0, 1, 0, 0, 0}, null},
                     new object[] {typeof(object), (byte)5,          1, new byte[] {1, 121, 0, 5},
